@@ -1,0 +1,17 @@
+//
+//  Sunland_ParkApp.swift
+//  Sunland Park
+//
+//  Created by Алкександр Степанов on 03.06.2025.
+//
+
+import SwiftUI
+
+@main
+struct Sunland_ParkApp: App {
+    var body: some Scene {
+        WindowGroup {
+            ContentView()
+        }
+    }
+}
