@@ -35,6 +35,12 @@ struct Menu: View {
                     .frame(height: screenHeight*0.25)
                 Buttons(size: 0.6, textSize: 0.6, text: "PLAY")
                     .offset(x: -screenWidth*offsetsArray[0])
+                    .onTapGesture {
+                        closeMenuAnimation()
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                            coordinator.navigate(to: .game)
+                        }
+                    }
                 Buttons(size: 0.45, textSize: 0.45, text: "SHOP")
                     .offset(x: -screenWidth*offsetsArray[1])
                     .onTapGesture {

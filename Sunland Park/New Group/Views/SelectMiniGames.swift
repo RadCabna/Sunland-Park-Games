@@ -42,7 +42,7 @@ struct SelectMiniGames: View {
             .padding(.horizontal)
             .opacity(globalOpacity)
             VStack(spacing: screenHeight*0.02) {
-                Buttons(size: 0.7,textSize: 0.4, text: "MATCH \nTHE CARD")
+                Buttons(size: 0.7,textSize: 0.4, text: "FIND \nA COUPLE")
                     .offset(x: -screenWidth*offsetsArray[0])
                     .onTapGesture {
                         buttonsSlideOffAnimations()
@@ -52,10 +52,28 @@ struct SelectMiniGames: View {
                     }
                 Buttons(size: 0.7, textSize: 0.4, text: "GUESS \nTHE NUMBER")
                     .offset(x: -screenWidth*offsetsArray[1])
-                Buttons(size: 0.7, textSize: 0.4, text: "FIND \nA COUPLE")
+                    .onTapGesture {
+                        buttonsSlideOffAnimations()
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                            coordinator.navigate(to: .minGame2)
+                        }
+                    }
+                Buttons(size: 0.7, textSize: 0.4, text: "MATCH \nTHE CARD")
                     .offset(x: -screenWidth*offsetsArray[2])
+                    .onTapGesture {
+                        buttonsSlideOffAnimations()
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                            coordinator.navigate(to: .minGame3)
+                        }
+                    }
                 Buttons(size: 0.7, textSize: 0.4, text: "MAZE")
                     .offset(x: -screenWidth*offsetsArray[3])
+                    .onTapGesture {
+                        buttonsSlideOffAnimations()
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                            coordinator.navigate(to: .minGame4)
+                        }
+                    }
                 
             }
             .frame(maxHeight: screenHeight*0.8)

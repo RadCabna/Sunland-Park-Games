@@ -175,8 +175,8 @@ struct Shop: View {
     }
     
     func selectItem(item: Int) {
-            if shopType == 1 {
-                bgNumber = item + 1
+            if shopType == 2 {
+                bgNumber = item + 2
             } else {
                 instrumentNumber = item + 1
             }
