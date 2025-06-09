@@ -9,6 +9,7 @@ import SwiftUI
 
 struct BonusGameComplete: View {
     @EnvironmentObject var coordinator: Coordinator
+    @AppStorage("sound") var sound = true
     @State private var answerData = UserDefaults.standard.array(forKey: "answerData") as? [Int] ?? [0,0,0]
     @Binding var correct: Bool
     @Binding var answerDone: Bool
@@ -50,6 +51,9 @@ struct BonusGameComplete: View {
         
         .onAppear {
             whatReward()
+            if sound {
+                SoundManager.instance.playSound(sound: "winSound")
+            }
         }
         
     }

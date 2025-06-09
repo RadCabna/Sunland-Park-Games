@@ -10,8 +10,10 @@ import SwiftUI
 struct Game: View {
     @EnvironmentObject var coordinator: Coordinator
     @AppStorage("coinCount") var coinCount: Int = 0
-    @AppStorage("bgNumber") var bgNumber = 1
+    @AppStorage("bgNumber") var bgNumber = 2
+    @AppStorage("sound") var sound = true
     @AppStorage("instrumentNumber") var instrumentNumber = 1
+    @State private var noteSoundArray = ["noteSound1", "noteSound2", "noteSound3", "noteSound4", "noteSound5"]
     @State private var gameInProgress = true
     @State private var globalOpacity: CGFloat = 0
     @State private var instrumentName = "instrument1"
@@ -190,6 +192,9 @@ struct Game: View {
                     !gameItemsArray[i].collected  {
                     if gameItemsArray[i].colorType == gameColorCircle.colorType {
                         coinCount += 1
+                        if sound {
+                            SoundManager.instance.playSound(sound: noteSoundArray.randomElement() ?? "noteSound1")
+                        }
                     } else {
                         coinCount -= 1
                     }
@@ -213,6 +218,9 @@ struct Game: View {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
                     if gameInProgress {
                         coordinator.navigate(to: .bonusGame)
+                        if sound {
+                            SoundManager.instance.playSound(sound: noteSoundArray.randomElement() ?? "noteSound1")
+                        }
                     }
                 }
                 dropBonus.opacity = 0

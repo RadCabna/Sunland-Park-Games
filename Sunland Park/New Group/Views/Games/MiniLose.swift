@@ -9,6 +9,7 @@ import SwiftUI
 
 struct MiniLose: View {
     @EnvironmentObject var coordinator: Coordinator
+    @AppStorage("sound") var sound = true
     @Binding var youLose: Bool
     var body: some View {
         ZStack {
@@ -30,6 +31,11 @@ struct MiniLose: View {
                     }
             }
             .padding(.bottom, screenHeight*0.1)
+        }
+        .onAppear {
+            if sound {
+                SoundManager.instance.playSound(sound: "loseSound")
+            }
         }
     }
 }

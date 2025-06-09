@@ -10,6 +10,7 @@ import SwiftUI
 struct Menu: View {
     @EnvironmentObject var coordinator: Coordinator
     @AppStorage("coinCount") var coinCount: Int = 0
+    @AppStorage("music") var music = true
     @State private var offsetsArray: [CGFloat] = [1,1,1,1,1]
     @State private var globalOpacity: CGFloat = 0
     var body: some View {
@@ -80,6 +81,10 @@ struct Menu: View {
         .onAppear {
             buttonsAnimations()
             showMenuAnimation()
+            SoundManager.instance.stopAllSounds()
+            if music {
+                SoundManager.instance.playSound(sound: "soundMain")
+            }
         }
         
     }

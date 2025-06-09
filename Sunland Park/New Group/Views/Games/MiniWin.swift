@@ -9,6 +9,7 @@ import SwiftUI
 
 struct MiniWin: View {
     @EnvironmentObject var coordinator: Coordinator
+    @AppStorage("sound") var sound = true
     @AppStorage("coinCount") var coinCount: Int = 0
     @Binding var youWin: Bool
     var body: some View {
@@ -39,6 +40,13 @@ struct MiniWin: View {
             }
             .padding(.bottom, screenHeight*0.1)
         }
+        
+        .onAppear {
+            if sound {
+                SoundManager.instance.playSound(sound: "winSound")
+            }
+        }
+        
     }
 }
 

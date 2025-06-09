@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct BonusGameAnswerResult: View {
+    @AppStorage("sound") var sound = true
     @Binding var correct: Bool
     @Binding var answerDone: Bool
     var body: some View {
@@ -33,6 +34,13 @@ struct BonusGameAnswerResult: View {
                     }
             }
         }
+        
+        .onAppear {
+            if sound {
+                SoundManager.instance.playSound(sound: "winSound")
+            }
+        }
+        
     }
 }
 

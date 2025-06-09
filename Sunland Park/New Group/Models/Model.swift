@@ -132,9 +132,9 @@ class Arrays {
     ]
     
     static var bonusQuestionArray: [BonusQoestion] = [
-        BonusQoestion(question: "Who performed the hit song ‘Shape of You’?", variant: ["Justin Bieber", "Ed Sheeran", "Sam Smith"], correctAnswer: "Ed Sheeran"),
-        BonusQoestion(question: "Which of the following instruments is a string instrument?", variant: ["Drum", "Violin", "Trumpet"], correctAnswer: "Violin"),
-        BonusQoestion(question: "Which of the following instruments has keys and strings?", variant: ["Piano", "Saxophone", "Guitar"], correctAnswer: "Piano")
+        BonusQoestion(question: "Who performed the hit \nsong ‘Shape of You’?", variant: ["Justin Bieber", "Ed Sheeran", "Sam Smith"], correctAnswer: "Ed Sheeran"),
+        BonusQoestion(question: "Which of the following \ninstruments is a string \ninstrument?", variant: ["Drum", "Violin", "Trumpet"], correctAnswer: "Violin"),
+        BonusQoestion(question: "Which of the following \ninstruments has keys \nand strings?", variant: ["Piano", "Saxophone", "Guitar"], correctAnswer: "Piano")
 ]
     
     static var cardLogoArray: [String] = ["figure1", "figure2", "figure3", "figure4", "figure5", "figure6"]
@@ -163,11 +163,11 @@ class Arrays {
     ]
     
     static var achievementsTextArray = [
-        "Catch 10 notes in a row without making a mistake",
-        "Complete 3 levels in a row without making any mistakes",
+        "Catch 10 notes in a row \nwithout making a mistake",
+        "Complete 3 levels in a row \nwithout making any mistakes",
         "Catch 5 notes in 5 seconds",
-        "Catch 10 notes in 10 seconds",
-        "Complete 5 levels in a row without making any mistakes"
+        "Catch 10 notes in \n10 seconds",
+        "Complete 5 levels in a row \nwithout making any \nmistakes"
     ]
     
     static var labyrinthArray: [[MiniGFour]] = [
